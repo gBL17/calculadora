@@ -25,4 +25,13 @@ let calculate = (calc) => {
     return eval(calc);
 }
 
+router.get('/historic', (res) => {
+    try {
+        const historic = Calculator.find({});
+        return res.status(200).send({ historic });
+    } catch (err) {
+        return res.status(400).send({ error: 'Bad Request' });
+    }
+});
+
 module.exports = app => app.use('/operation', router)
