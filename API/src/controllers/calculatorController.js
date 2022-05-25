@@ -25,7 +25,7 @@ let calculate = (calc) => {
     return eval(calc);
 }
 
-router.get('/historic', (res) => {
+router.get('/historic', (req, res) => {
     try {
         const historic = Calculator.find({});
         return res.status(200).send({ historic });
